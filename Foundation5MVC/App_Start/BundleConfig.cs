@@ -19,12 +19,10 @@ namespace Foundation5MVC
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            #region Foundation Bundles
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+           "~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/foundation/css").Include(
-                       "~/Content/foundation/foundation.css",
-                       "~/Content/foundation/foundation.mvc.css",
-                       "~/Content/foundation/app.css"));
+            #region Foundation Bundles
 
             bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
                       "~/Scripts/foundation/foundation.js",

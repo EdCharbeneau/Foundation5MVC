@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <IsCompassProject>True</IsCompassProject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -171,28 +172,95 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\foundation\app.css" />
-    <Content Include="Content\foundation\foundation.css" />
-    <Content Include="Content\foundation\foundation.mvc.css" />
-    <Content Include="Content\foundation\normalize.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
+    <Content Include="config.rb" />
     <None Include="Foundation_readme.md" />
+    <Content Include="Foundation_readme.txt" />
     <Content Include="Global.asax" />
+    <Content Include="sass\Site.scss">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="sass\_foundation.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="sass\foundation\components\_accordion.scss" />
+    <Content Include="sass\foundation\components\_alert-boxes.scss" />
+    <Content Include="sass\foundation\components\_block-grid.scss" />
+    <Content Include="sass\foundation\components\_breadcrumbs.scss" />
+    <Content Include="sass\foundation\components\_button-groups.scss" />
+    <Content Include="sass\foundation\components\_buttons.scss" />
+    <Content Include="sass\foundation\components\_clearing.scss" />
+    <Content Include="sass\foundation\components\_dropdown-buttons.scss" />
+    <Content Include="sass\foundation\components\_dropdown.scss" />
+    <Content Include="sass\foundation\components\_flex-video.scss" />
+    <Content Include="sass\foundation\components\_forms.scss" />
+    <Content Include="sass\foundation\components\_functions.scss" />
+    <Content Include="sass\foundation\components\_global.scss" />
+    <Content Include="sass\foundation\components\_grid.scss" />
+    <Content Include="sass\foundation\components\_inline-lists.scss" />
+    <Content Include="sass\foundation\components\_joyride.scss" />
+    <Content Include="sass\foundation\components\_keystrokes.scss" />
+    <Content Include="sass\foundation\components\_labels.scss" />
+    <Content Include="sass\foundation\components\_magellan.scss" />
+    <Content Include="sass\foundation\components\_offcanvas.scss" />
+    <Content Include="sass\foundation\components\_orbit.scss" />
+    <Content Include="sass\foundation\components\_pagination.scss" />
+    <Content Include="sass\foundation\components\_panels.scss" />
+    <Content Include="sass\foundation\components\_pricing-tables.scss" />
+    <Content Include="sass\foundation\components\_progress-bars.scss" />
+    <Content Include="sass\foundation\components\_reveal.scss" />
+    <Content Include="sass\foundation\components\_side-nav.scss" />
+    <Content Include="sass\foundation\components\_split-buttons.scss" />
+    <Content Include="sass\foundation\components\_sub-nav.scss" />
+    <Content Include="sass\foundation\components\_switch.scss" />
+    <Content Include="sass\foundation\components\_tables.scss" />
+    <Content Include="sass\foundation\components\_tabs.scss" />
+    <Content Include="sass\foundation\components\_thumbs.scss" />
+    <Content Include="sass\foundation\components\_tooltips.scss" />
+    <Content Include="sass\foundation\components\_top-bar.scss" />
+    <Content Include="sass\foundation\components\_type.scss" />
+    <Content Include="sass\foundation\components\_visibility.scss" />
+    <Content Include="sass\foundation\_functions.scss" />
+    <Content Include="sass\foundation\_settings.scss" />
+    <Content Include="sass\_normalize.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="sass\_foundation.mvc.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\foundation\foundation.abide.js" />
-    <Content Include="Scripts\foundation\foundation.accordion.js" />
-    <Content Include="Scripts\foundation\foundation.alert.js" />
+    <Content Include="Scripts\foundation\foundation.alerts.js" />
     <Content Include="Scripts\foundation\foundation.clearing.js" />
+    <Content Include="Scripts\foundation\foundation.cookie.js" />
     <Content Include="Scripts\foundation\foundation.dropdown.js" />
+    <Content Include="Scripts\foundation\foundation.forms.js" />
     <Content Include="Scripts\foundation\foundation.interchange.js" />
     <Content Include="Scripts\foundation\foundation.joyride.js" />
     <Content Include="Scripts\foundation\foundation.js" />
     <Content Include="Scripts\foundation\foundation.magellan.js" />
-    <Content Include="Scripts\foundation\foundation.offcanvas.js" />
     <Content Include="Scripts\foundation\foundation.orbit.js" />
+    <Content Include="Scripts\foundation\foundation.placeholder.js" />
     <Content Include="Scripts\foundation\foundation.reveal.js" />
-    <Content Include="Scripts\foundation\foundation.tab.js" />
-    <Content Include="Scripts\foundation\foundation.tooltip.js" />
+    <Content Include="Scripts\foundation\foundation.section.js" />
+    <Content Include="Scripts\foundation\foundation.tooltips.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -205,7 +273,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\zepto.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="stylesheets\ie.css" />
+    <Content Include="stylesheets\print.css" />
+    <Content Include="stylesheets\screen.css" />
+    <Content Include="stylesheets\Site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

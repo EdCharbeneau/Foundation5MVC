@@ -1,26 +1,23 @@
+/*jslint unparam: true, browser: true, indent: 2 */
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.0.0',
+    version : '4.2.4',
 
     cache : {},
-
-    images_loaded : false,
-    nodes_loaded : false,
 
     settings : {
       load_attr : 'interchange',
 
       named_queries : {
-        'default' : Foundation.media_queries.small,
-        small : Foundation.media_queries.small,
-        medium : Foundation.media_queries.medium,
-        large : Foundation.media_queries.large,
-        xlarge : Foundation.media_queries.xlarge,
-        xxlarge: Foundation.media_queries.xxlarge,
+        'default' : 'only screen and (min-width: 1px)',
+        small : 'only screen and (min-width: 768px)',
+        medium : 'only screen and (min-width: 1280px)',
+        large : 'only screen and (min-width: 1440px)',
         landscape : 'only screen and (orientation: landscape)',
         portrait : 'only screen and (orientation: portrait)',
         retina : 'only screen and (-webkit-min-device-pixel-ratio: 2),' + 
@@ -32,18 +29,7 @@
       },
 
       directives : {
-        replace: function (el, path, trigger) {
-          // The trigger argument, if called within the directive, fires
-          // an event named after the directive on the element, passing
-          // any parameters along to the event that you pass to trigger.
-          //
-          // ex. trigger(), trigger([a, b, c]), or trigger(a, b, c)
-          //
-          // This allows you to bind a callback like so:
-          // $('#interchangeContainer').on('replace', function (e, a, b, c) {
-          //   console.log($(this).html(), a, b, c);
-          // });
-
+        replace: function (el, path) {
           if (/IMG/.test(el[0].nodeName)) {
             var orig_path = el[0].src;
 
@@ -51,18 +37,8 @@
 
             el[0].src = path;
 
-            return trigger(el[0].src);
+            return el.trigger('replace', [el[0].src, orig_path]);
           }
-          var last_path = el.data('interchange-last-path');
-
-          if (last_path == path) return;
-
-          return $.get(path, function (response) {
-            el.html(response);
-            el.data('interchange-last-path', path);
-            trigger();
-          });
-
         }
       }
     },
@@ -70,32 +46,30 @@
     init : function (scope, method, options) {
       Foundation.inherit(this, 'throttle');
 
-      this.data_attr = 'data-' + this.settings.load_attr;
+      if (typeof method === 'object') {
+        $.extend(true, this.settings, method);
+      }
 
-      this.bindings(method, options);
-      this.load('images');
-      this.load('nodes');
+      this.events();
+      this.images();
+
+      if (typeof method !== 'string') {
+        return this.settings.init;
+      } else {
+        return this[method].call(this, options);
+      }
     },
 
     events : function () {
       var self = this;
 
-      $(window)
-        .off('.interchange')
-        .on('resize.fndtn.interchange', self.throttle(function () {
-          self.resize.call(self);
-        }, 50));
-
-      return this;
+      $(window).on('resize.fndtn.interchange', self.throttle(function () {
+        self.resize.call(self);
+      }, 50));
     },
 
     resize : function () {
       var cache = this.cache;
-
-      if(!this.images_loaded || !this.nodes_loaded) {
-        setTimeout($.proxy(this.resize, this), 50);
-        return;
-      }
 
       for (var uuid in cache) {
         if (cache.hasOwnProperty(uuid)) {
@@ -103,15 +77,7 @@
 
           if (passed) {
             this.settings.directives[passed
-              .scenario[1]](passed.el, passed.scenario[0], function () {
-                if (arguments[0] instanceof Array) { 
-                  var args = arguments[0];
-                } else { 
-                  var args = Array.prototype.slice.call(arguments, 0);
-                }
-
-                passed.el.trigger(passed.scenario[1], args);
-              });
+              .scenario[1]](passed.el, passed.scenario[0]);
           }
         }
       }
@@ -119,17 +85,18 @@
     },
 
     results : function (uuid, scenarios) {
-      var count = scenarios.length;
+      var count = scenarios.length,
+          results_arr = [];
 
       if (count > 0) {
-        var el = this.S('[data-uuid="' + uuid + '"]');
+        var el = $('[data-uuid="' + uuid + '"]');
 
         for (var i = count - 1; i >= 0; i--) {
-          var mq, rule = scenarios[i][2];
+          var rule = scenarios[i][2];
           if (this.settings.named_queries.hasOwnProperty(rule)) {
-            mq = matchMedia(this.settings.named_queries[rule]);
+            var mq = matchMedia(this.settings.named_queries[rule]);
           } else {
-            mq = matchMedia(rule);
+            var mq = matchMedia(scenarios[i][2]);
           }
           if (mq.matches) {
             return {el: el, scenario: scenarios[i]};
@@ -140,77 +107,76 @@
       return false;
     },
 
-    load : function (type, force_update) {
-      if (typeof this['cached_' + type] === 'undefined' || force_update) {
-        this['update_' + type]();
+    images : function (force_update) {
+      if (typeof this.cached_images === 'undefined' || force_update) {
+        return this.update_images();
       }
 
-      return this['cached_' + type];
+      return this.cached_images;
     },
 
     update_images : function () {
-      var images = this.S('img[' + this.data_attr + ']'),
+      var images = document.getElementsByTagName('img'),
           count = images.length,
-          loaded_count = 0,
-          data_attr = this.data_attr;
+          data_attr = 'data-' + this.settings.load_attr;
 
-      this.cache = {};
       this.cached_images = [];
-      this.images_loaded = (count === 0);
 
       for (var i = count - 1; i >= 0; i--) {
-        loaded_count++;
-        if (images[i]) {
-          var str = images[i].getAttribute(data_attr) || '';
+        this.loaded($(images[i]), (i === 0), function (image, last) {
+          if (image) {
+            var str = image.getAttribute(data_attr) || '';
 
-          if (str.length > 0) {
-            this.cached_images.push(images[i]);
+            if (str.length > 0) {
+              this.cached_images.push(image);
+            }
           }
-        }
 
-        if(loaded_count === count) {
-          this.images_loaded = true;
-          this.enhance('images');
+          if (last) this.enhance();
+
+        }.bind(this));
+      }
+
+      return 'deferred';
+    },
+
+    // based on jquery.imageready.js
+    // @weblinc, @jsantell, (c) 2012
+
+    loaded : function (image, last, callback) {
+      function loaded () {
+        callback(image[0], last);
+      }
+
+      function bindLoad () {
+        this.one('load', loaded);
+
+        if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+          var src = this.attr( 'src' ),
+              param = src.match( /\?/ ) ? '&' : '?';
+
+          param += 'random=' + (new Date()).getTime();
+          this.attr('src', src + param);
         }
       }
 
-      return this;
-    },
-
-    update_nodes : function () {
-      var nodes = this.S('[' + this.data_attr + ']:not(img)'),
-          count = nodes.length,
-          loaded_count = 0,
-          data_attr = this.data_attr;
-
-      this.cached_nodes = [];
-      // Set nodes_loaded to true if there are no nodes
-      // this.nodes_loaded = false;
-      this.nodes_loaded = (count === 0);
-
-
-      for (var i = count - 1; i >= 0; i--) {
-        loaded_count++;
-        var str = nodes[i].getAttribute(data_attr) || '';
-
-        if (str.length > 0) {
-          this.cached_nodes.push(nodes[i]);
-        }
-
-        if(loaded_count === count) {
-          this.nodes_loaded = true;
-          this.enhance('nodes');
-        }
+      if (!image.attr('src')) {
+        loaded();
+        return;
       }
 
-      return this;
+      if (image[0].complete || image[0].readyState === 4) {
+        loaded();
+      } else {
+        bindLoad.call(image);
+      }
     },
 
-    enhance : function (type) {
-      var count = this['cached_' + type].length;
+    enhance : function () {
+      var count = this.images().length;
 
       for (var i = count - 1; i >= 0; i--) {
-        this.object($(this['cached_' + type][i]));
+        this._object($(this.images()[i]));
       }
 
       return $(window).trigger('resize');
@@ -230,7 +196,7 @@
       return 'replace';
     },
 
-    object : function(el) {
+    _object : function(el) {
       var raw_arr = this.parse_data_attr(el),
           scenarios = [], count = raw_arr.length;
 
@@ -295,10 +261,9 @@
     },
 
     reflow : function () {
-      this.load('images', true);
-      this.load('nodes', true);
+      this.images(true);
     }
 
   };
 
-}(jQuery, this, this.document));
+}(Foundation.zj, this, this.document));
