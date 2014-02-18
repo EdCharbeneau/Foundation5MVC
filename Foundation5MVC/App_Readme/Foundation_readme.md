@@ -1,45 +1,14 @@
 ﻿#Installation Instructions
 
-##1. Update the Layout
+##1. Remove the Bootstrap package
 
-Open the /Views/_ViewStart.cshtml
-Change the Layout to _Foundation.cshtml like the example below:
-
-    @{
-        //This is the default MVC template
-        //Layout = "~/Views/Shared/_Layout.cshtml";
-        
-        //This is the Foundation MVC template
-        Layout = "~/Views/Shared/_Foundation.cshtml";
-    }
-
-##2. Replace the default theme
-
-2a. Once the ViewStart has been updated. Replace the default Index.cshtml:
-
-Rename `~/Views/Home/Index.cshtml to Index.cshtml.exclude` **or delete the file**  
-Rename `~/Views/Home/Foundation_Index.cshtml` to `Index.cshtml`
-
-2b. Next, remove the default Bootstrap style:
+1. Remove the default Bootstrap style:
 
 From the package manager console run **`PM> Uninstall-Package Bootstrap`**
 
 Rename `~/Content/Site.css` to `Site.css.exclude` **or delete the file**
 
-##3. Automatic Bundling and Minification
-
-Open the `/App_Start/BundleConfig.cs`
-Add the following bundles:
-
-            #region Foundation Bundles
-
-            bundles.Add(Foundation.Styles());
-
-            bundles.Add(Foundation.Scripts());
-
-            #endregion
-
-##4. You are now ready to begin building your MVC project using Foundation.
+##2. You are now ready to begin building your MVC project using Foundation.
 
 ####Related Nuget packages
 Want to rapid prototype and wire frame directly from code using Html Helpers? 
@@ -63,7 +32,7 @@ Foundation Zurb http://twitter.com/#!/foundationzurb
 
 Version 1.0.511
     - Updated Foundation to 5.1.1
-    - Added new bundle mechanics (less setup necessary)
+    - Streamlinied the install process. Foundation will now overwrite the necessary files to minimize setup.
 
 Version 1.0.502
 	- Initial NuGet Release
