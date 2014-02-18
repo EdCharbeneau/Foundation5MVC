@@ -157,7 +157,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App_Start\BundleConfig.cs.pp" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Bundles\Foundation.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -175,8 +177,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="config.rb" />
-    <None Include="Foundation_readme.md" />
+    <Content Include="App_Start\Bundles\Foundation.cs.pp" />
+    <None Include="App_Readme\Foundation_readme.md" />
     <Content Include="Global.asax" />
+    <Content Include="sass\foundation\test.html" />
     <Content Include="sass\Site.scss">
       <Compile>True</Compile>
       <Minify>True</Minify>
@@ -184,13 +188,14 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </Content>
-    <Content Include="sass\_foundation.scss">
+    <Content Include="sass\_foundation.mvc.scss">
       <Compile>False</Compile>
       <Minify>True</Minify>
       <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </Content>
+    <Content Include="sass\_foundation.scss" />
     <Content Include="sass\foundation\components\_accordion.scss" />
     <Content Include="sass\foundation\components\_alert-boxes.scss" />
     <Content Include="sass\foundation\components\_block-grid.scss" />
@@ -202,7 +207,6 @@
     <Content Include="sass\foundation\components\_dropdown.scss" />
     <Content Include="sass\foundation\components\_flex-video.scss" />
     <Content Include="sass\foundation\components\_forms.scss" />
-    <Content Include="sass\foundation\components\_functions.scss" />
     <Content Include="sass\foundation\components\_global.scss" />
     <Content Include="sass\foundation\components\_grid.scss" />
     <Content Include="sass\foundation\components\_inline-lists.scss" />
@@ -216,6 +220,7 @@
     <Content Include="sass\foundation\components\_panels.scss" />
     <Content Include="sass\foundation\components\_pricing-tables.scss" />
     <Content Include="sass\foundation\components\_progress-bars.scss" />
+    <Content Include="sass\foundation\components\_range-slider.scss" />
     <Content Include="sass\foundation\components\_reveal.scss" />
     <Content Include="sass\foundation\components\_side-nav.scss" />
     <Content Include="sass\foundation\components\_split-buttons.scss" />
@@ -230,26 +235,15 @@
     <Content Include="sass\foundation\components\_visibility.scss" />
     <Content Include="sass\foundation\_functions.scss" />
     <Content Include="sass\foundation\_settings.scss" />
-    <Content Include="sass\_normalize.scss">
-      <Compile>False</Compile>
-      <Minify>True</Minify>
-      <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </Content>
-    <Content Include="sass\_foundation.mvc.scss">
-      <Compile>False</Compile>
-      <Minify>True</Minify>
-      <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </Content>
+    <Content Include="sass\_normalize.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\foundation\fastclick.js" />
     <Content Include="Scripts\foundation\foundation.abide.js" />
     <Content Include="Scripts\foundation\foundation.accordion.js" />
     <Content Include="Scripts\foundation\foundation.alert.js" />
     <Content Include="Scripts\foundation\foundation.clearing.js" />
     <Content Include="Scripts\foundation\foundation.dropdown.js" />
+    <Content Include="Scripts\foundation\foundation.equalizer.js" />
     <Content Include="Scripts\foundation\foundation.interchange.js" />
     <Content Include="Scripts\foundation\foundation.joyride.js" />
     <Content Include="Scripts\foundation\foundation.js" />
@@ -260,6 +254,7 @@
     <Content Include="Scripts\foundation\foundation.tab.js" />
     <Content Include="Scripts\foundation\foundation.tooltip.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
+    <Content Include="Scripts\foundation\jquery.cookie.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -286,7 +281,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -300,8 +294,8 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Foundation.cshtml" />
-    <Content Include="Views\Home\Foundation_Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Foundation5.MVC.Sass</id>
-        <version>1.4.502</version>
-        <title>Zurb Foundation 5.0.2 for MVC and Sass</title>
+        <version>1.4.511</version>
+        <title>Zurb Foundation 5.1.1 for MVC and Sass</title>
         <authors>Ed Charbeneau</authors>
         <owners>Ed Charbeneau</owners>
         <licenseUrl>https://github.com/zurb/foundation/blob/master/LICENSE</licenseUrl>
@@ -23,13 +23,18 @@ Foundation is MIT-licensed and absolutely free to use. Foundation wouldn't be po
 An easy to use, powerful, and flexible framework for building prototypes and production code on any kind of device.</summary>
         <releaseNotes>Fixed missing Sass and Scripts
 Updated to
--Foundation version 5.0.2</releaseNotes>
+-Foundation version 5.1.1</releaseNotes>
         <copyright>MIT open source licensed</copyright>
         <tags>HTML CSS MVC Template Boilerplate Javascript Prototyping Framework Foundation Zurb</tags>
         <dependencies>
-            <dependency id="Foundation5.Core.Sass" version="5.0.2.2" />
+            <dependency id="Foundation5.Core.Sass" version="5.1.1" />
         </dependencies>
     </metadata>
     <files>
+        <file src="content\App_Readme\Foundation_readme.md" target="content\App_Readme\Foundation_readme.md" />
+        <file src="content\App_Start\Bundles\Foundation.cs.pp" target="content\App_Start\Bundles\Foundation.cs.pp" />
+        <file src="..\Foundation5MVC\App_Start\BundleConfig.cs.pp" target="content\App_Start\BundleConfig.cs.pp" />
+        <file src="content\Views\Home\Index.cshtml" target="content\Views\Home\Index.cshtml" />
+        <file src="content\Views\Shared\_Layout.cshtml" target="content\Views\Shared\_Layout.cshtml" />
     </files>
 </package>

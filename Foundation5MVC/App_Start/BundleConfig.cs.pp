@@ -1,8 +1,7 @@
-﻿using Foundation5MVC;
-using System.Web;
+﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Foundation5MVC
+namespace $rootnamespace$
 {
     public class BundleConfig
     {
