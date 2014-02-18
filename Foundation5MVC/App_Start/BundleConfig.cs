@@ -27,6 +27,8 @@ namespace Foundation5MVC
                        "~/Content/foundation/app.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
+                      "~/Scripts/foundation/fastclick.js",
+                      "~/Scripts/jquery.cookie.js",
                       "~/Scripts/foundation/foundation.js",
                       "~/Scripts/foundation/foundation.*",
                       "~/Scripts/foundation/app.js"));
