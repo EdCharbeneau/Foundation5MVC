@@ -31,18 +31,14 @@ Rename `~/Content/Site.css` to `Site.css.exclude` **or delete the file**
 Open the `/App_Start/BundleConfig.cs`
 Add the following bundles:
 
-    #region Foundation Bundles
+            #region Foundation Bundles
 
-            bundles.Add(new StyleBundle("~/Content/foundation/css").Include(
-                       "~/Content/foundation/foundation.css",
-                       "~/Content/foundation/foundation.mvc.css",
-                       "~/Content/foundation/app.css"));
+            bundles.Add(Foundation.Styles());
 
-            bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
-                      "~/Scripts/foundation/foundation.js",
-                      "~/Scripts/foundation/foundation.*",
-                      "~/Scripts/foundation/app.js"));
-    #endregion
+            bundles.Add(Foundation.Scripts());
+
+            #endregion
+
 ##4. You are now ready to begin building your MVC project using Foundation.
 
 ####Related Nuget packages
@@ -64,6 +60,10 @@ Ed Charbeneau http://twitter.com/#!/edcharbeneau
 Foundation Zurb http://twitter.com/#!/foundationzurb
 
 #####Change Log:
+
+Version 1.0.511
+    - Updated Foundation to 5.1.1
+    - Added new bundle mechanics (less setup necessary)
 
 Version 1.0.502
 	- Initial NuGet Release

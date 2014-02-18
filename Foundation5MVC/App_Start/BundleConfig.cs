@@ -21,17 +21,10 @@ namespace Foundation5MVC
 
             #region Foundation Bundles
 
-            bundles.Add(new StyleBundle("~/Content/foundation/css").Include(
-                       "~/Content/foundation/foundation.css",
-                       "~/Content/foundation/foundation.mvc.css",
-                       "~/Content/foundation/app.css"));
+            bundles.Add(Foundation.Styles());
 
-            bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
-                      "~/Scripts/foundation/fastclick.js",
-                      "~/Scripts/jquery.cookie.js",
-                      "~/Scripts/foundation/foundation.js",
-                      "~/Scripts/foundation/foundation.*",
-                      "~/Scripts/foundation/app.js"));
+            bundles.Add(Foundation.Scripts());
+
             #endregion
         }
     }
