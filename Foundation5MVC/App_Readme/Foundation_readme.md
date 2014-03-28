@@ -1,4 +1,4 @@
-﻿#Installation Instructions
+#Installation Instructions
 
 **Requirements**
 This package requires Sass (Compass is optional).  
@@ -54,7 +54,10 @@ Foundation Zurb http://twitter.com/#!/foundationzurb
 
 #####Change Log:
 
-Version 1.0.511
+Version 1.4.521
+    - Updated Foundation to 5.2.1
+
+Version 1.4.511
     - Updated Foundation to 5.1.1
     - Streamlinied the install process. Foundation will now overwrite the necessary files to minimize setup.
 
