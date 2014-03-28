@@ -195,6 +195,7 @@
     <Content Include="Scripts\foundation\foundation.offcanvas.js" />
     <Content Include="Scripts\foundation\foundation.orbit.js" />
     <Content Include="Scripts\foundation\foundation.reveal.js" />
+    <Content Include="Scripts\foundation\foundation.slider.js" />
     <Content Include="Scripts\foundation\foundation.tab.js" />
     <Content Include="Scripts\foundation\foundation.tooltip.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
