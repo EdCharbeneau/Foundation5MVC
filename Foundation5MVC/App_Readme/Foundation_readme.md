@@ -1,4 +1,4 @@
-﻿#Installation Instructions
+#Installation Instructions
 
 ##1. Remove the Bootstrap package
 
@@ -29,6 +29,9 @@ Ed Charbeneau http://twitter.com/#!/edcharbeneau
 Foundation Zurb http://twitter.com/#!/foundationzurb
 
 #####Change Log:
+
+Version 1.0.521
+    - Updated Foundation to 5.2.1
 
 Version 1.0.511
     - Updated Foundation to 5.1.1
