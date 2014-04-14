@@ -195,7 +195,6 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </Content>
-    <Content Include="sass\_foundation.scss" />
     <Content Include="sass\foundation\components\_accordion.scss" />
     <Content Include="sass\foundation\components\_alert-boxes.scss" />
     <Content Include="sass\foundation\components\_block-grid.scss" />
@@ -235,6 +234,7 @@
     <Content Include="sass\foundation\components\_visibility.scss" />
     <Content Include="sass\foundation\_functions.scss" />
     <Content Include="sass\foundation\_settings.scss" />
+    <Content Include="sass\_foundation.scss" />
     <Content Include="sass\_normalize.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\foundation\fastclick.js" />
@@ -251,6 +251,7 @@
     <Content Include="Scripts\foundation\foundation.offcanvas.js" />
     <Content Include="Scripts\foundation\foundation.orbit.js" />
     <Content Include="Scripts\foundation\foundation.reveal.js" />
+    <Content Include="Scripts\foundation\foundation.slider.js" />
     <Content Include="Scripts\foundation\foundation.tab.js" />
     <Content Include="Scripts\foundation\foundation.tooltip.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
