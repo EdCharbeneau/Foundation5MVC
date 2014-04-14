@@ -30,6 +30,9 @@ Foundation Zurb http://twitter.com/#!/foundationzurb
 
 #####Change Log:
 
+Version 1.0.522
+    - Updated Foundation to 5.2.2
+    
 Version 1.0.521
     - Updated Foundation to 5.2.1
 
