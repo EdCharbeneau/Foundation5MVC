@@ -63,7 +63,9 @@
       if (settings.timer) {
         timer_container = $('<div>').addClass(settings.timer_container_class);
         timer_container.append('<span>');
-        timer_container.append($('<div>').addClass(settings.timer_progress_class));
+        if (settings.timer_show_progress_bar) {
+            timer_container.append($('<div>').addClass(settings.timer_progress_class));
+        }
         timer_container.addClass(settings.timer_paused_class);
         container.append(timer_container);
       }
@@ -140,6 +142,8 @@
         var unlock = function() {
           if (start_timer === true) {self.cache.timer.restart();}
           self.update_slide_number(idx);
+          // Remove "animate-in" class as late as possible to avoid "flickering" (especially with variable_height).
+          next.removeClass("animate-in");
           next.addClass(settings.active_slide_class);
           self.update_active_link(next_idx);
           slides_container.trigger('after-slide-change.fndtn.orbit',[{slide_number: idx, total_slides: slides.length}]);
@@ -150,7 +154,7 @@
           
         };
         if (slides_container.height() != next.height() && settings.variable_height) {
-          slides_container.animate({'height': next.height()}, 250, 'linear', unlock);
+          slides_container.animate({'min-height': next.height()}, 250, 'linear', unlock);
         } else {
           unlock();
         }
@@ -164,7 +168,7 @@
       };
 
       if (next.height() > slides_container.height() && settings.variable_height) {
-        slides_container.animate({'height': next.height()}, 250, 'linear', start_animation);
+        slides_container.animate({'min-height': next.height()}, 250, 'linear', start_animation);
       } else {
         start_animation();
       }
@@ -235,7 +239,7 @@
           if ($(this).height() > h) { h = $(this).height(); }
         });
       }
-      slides_container.height(h);
+      slides_container.css('minHeight', String(h)+'px');
     };
 
     self.create_timer = function() {
@@ -272,7 +276,12 @@
       animate = new CSSAnimation(settings, slides_container);
 
       if (has_init_active) {
-        self._goto(slides_container.find("." + settings.active_slide_class).index());
+        var $init_target = slides_container.find("." + settings.active_slide_class),
+            animation_speed = settings.animation_speed;
+        settings.animation_speed = 1;
+        $init_target.removeClass('active');
+        self._goto($init_target.index());
+        settings.animation_speed = animation_speed;
       }
 
       container.on('click', '.'+settings.next_class, self.next);
@@ -287,6 +296,8 @@
         slides_container.on('touchstart.fndtn.orbit',function(e) {
           if (self.cache.animating) {return;}
           if (!e.touches) {e = e.originalEvent;}
+          e.preventDefault();
+          e.stopPropagation();
 
           self.cache.start_page_x = e.touches[0].pageX;
           self.cache.start_page_y = e.touches[0].pageY;
@@ -380,6 +391,7 @@
     var self = this,
         duration = settings.timer_speed,
         progress = el.find('.'+settings.timer_progress_class),
+        do_progress = progress && progress.css('display') != 'none',
         start, 
         timeout,
         left = -1;
@@ -396,7 +408,7 @@
       clearTimeout(timeout);
       el.addClass(settings.timer_paused_class);
       left = -1;
-      self.update_progress(0);
+      if (do_progress) {self.update_progress(0);}
       self.start();
     };
 
@@ -404,8 +416,10 @@
       if (!el.hasClass(settings.timer_paused_class)) {return true;}
       left = (left === -1) ? duration : left;
       el.removeClass(settings.timer_paused_class);
-      start = new Date().getTime();
-      progress.animate({'width': '100%'}, left, 'linear');
+      if (do_progress) {
+          start = new Date().getTime();
+          progress.animate({'width': '100%'}, left, 'linear');
+      }
       timeout = setTimeout(function() {
         self.restart();
         callback();
@@ -417,10 +431,12 @@
       if (el.hasClass(settings.timer_paused_class)) {return true;}
       clearTimeout(timeout);
       el.addClass(settings.timer_paused_class);
-      var end = new Date().getTime();
-      left = left - (end - start);
-      var w = 100 - ((left / duration) * 100);
-      self.update_progress(w);
+      if (do_progress) {
+          var end = new Date().getTime();
+          left = left - (end - start);
+          var w = 100 - ((left / duration) * 100);
+          self.update_progress(w);
+      }
       el.trigger('timer-stopped.fndtn.orbit');
     };
   };
@@ -429,29 +445,85 @@
     var animation_end = "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend";
 
     this.next = function(current, next, callback) {
-      next.on(animation_end, function(e){
-        next.unbind(animation_end);
-        current.removeClass("active animate-out");
-        next.removeClass("animate-in");
-        callback();
-      });
+      if (Modernizr.csstransitions) {
+        next.on(animation_end, function(e){
+          next.unbind(animation_end);
+          current.removeClass("active animate-out");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        });
+      } else {
+        setTimeout(function(){
+          current.removeClass("active animate-out");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        }, settings.animation_speed);
+      }
       container.children().css({
-        "transform":"", 
-        "transitionDuration":""
+        "transform":"",
+        "-ms-transform":"",
+        "-webkit-transition-duration":"",
+        "-moz-transition-duration": "",
+        "-o-transition-duration": "",
+        "transition-duration":""
       });
       current.addClass("animate-out");
       next.addClass("animate-in");
     };
 
     this.prev = function(current, prev, callback) {
-      prev.on(animation_end, function(e){
-        prev.unbind(animation_end);
-        current.removeClass("active animate-out");
-        prev.removeClass("animate-in");
-        callback();
+      if (Modernizr.csstransitions) {
+        prev.on(animation_end, function(e){
+          prev.unbind(animation_end);
+          current.removeClass("active animate-out");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        });
+      } else {
+        setTimeout(function(){
+          current.removeClass("active animate-out");
+          container.children().css({
+            "transform":"",
+            "-ms-transform":"",
+            "-webkit-transition-duration":"",
+            "-moz-transition-duration": "",
+            "-o-transition-duration": "",
+            "transition-duration":""
+          });
+          callback();
+        }, settings.animation_speed);
+      }
+      container.children().css({
+        "transform":"",
+        "-ms-transform":"",
+        "-webkit-transition-duration":"",
+        "-moz-transition-duration": "",
+        "-o-transition-duration": "",
+        "transition-duration":""
       });
-      current.css({"transform":"", "transitionDuration":""}).addClass("animate-out");
-      prev.css({"transform":"", "transitionDuration":""}).addClass("animate-in");
+      current.addClass("animate-out");
+      prev.addClass("animate-in");
     };
   };
 
@@ -461,7 +533,7 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.2.1',
+    version: '5.2.2',
 
     settings: {
       animation: 'slide',
@@ -481,6 +553,7 @@
       timer_container_class: 'orbit-timer',
       timer_paused_class: 'paused',
       timer_progress_class: 'orbit-progress',
+      timer_show_progress_bar: true,
       slides_container_class: 'orbit-slides-container',
       preloader_class: 'preloader',
       slide_selector: '*',
@@ -505,6 +578,7 @@
     },
 
     events : function (instance) {
+      var self = this;
       var orbit_instance = new Orbit(this.S(instance), this.S(instance).data('orbit-init'));
       this.S(instance).data(self.name + '-instance', orbit_instance);
     },

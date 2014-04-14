@@ -276,7 +276,7 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -289,7 +289,7 @@
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
 
     global: {
-      namespace: ''
+      namespace: undefined
     },
 
     init : function (scope, libraries, method, options, response) {
@@ -362,19 +362,24 @@
 
     set_namespace: function () {
 
-      // Don't bother reading the namespace out of the meta tag
-      // if the namespace has been set globally in javascript
+      // Description:
+      //    Don't bother reading the namespace out of the meta tag
+      //    if the namespace has been set globally in javascript
       //
-      // Example: something like Foundation.global.namespace = 'my-namespace';
+      // Example: 
+      //    Foundation.global.namespace = 'my-namespace';
+      // or make it an empty string:
+      //    Foundation.global.namespace = '';
       //
-      // Otherwise, if the namespace hasn't been set globally,
-      // read it out of the meta tag
       //
-      var namespace = this.global.namespace || $('.foundation-data-attribute-namespace').css('font-family');
 
-      if (/false/i.test(namespace)) return;
+      // If the namespace has not been set (is undefined), try to read it out of the meta element. 
+      // Otherwise use the globally defined namespace, even if it's empty ('')
+      var namespace = ( this.global.namespace === undefined ) ? $('.foundation-data-attribute-namespace').css('font-family') : this.global.namespace;
       
-      this.global.namespace = namespace;
+      // Finally, if the namsepace is either undefined or false, set it to an empty string. 
+      // Otherwise use the namespace value.
+      this.global.namespace = ( namespace === undefined || /false/i.test(namespace) ) ? '' : namespace;
     },
 
     libs : {},
@@ -414,10 +419,12 @@
         return function () {
           var context = this, args = arguments;
 
-          clearTimeout(timer);
-          timer = setTimeout(function () {
-            func.apply(context, args);
-          }, delay);
+          if (timer == null) {
+            timer = setTimeout(function () {
+              func.apply(context, args);
+              timer = null;
+            }, delay);
+          }
         };
       },
 
@@ -535,7 +542,7 @@
       //    Media (String): Optional media query string for the CSS rule to be 
       //    nested under.
       add_custom_rule : function (rule, media) {
-        if (media === undefined) {
+        if (media === undefined && Foundation.stylesheet) {
           Foundation.stylesheet.insertRule(rule, Foundation.stylesheet.cssRules.length);
         } else {
           var query = Foundation.media_queries[media];
