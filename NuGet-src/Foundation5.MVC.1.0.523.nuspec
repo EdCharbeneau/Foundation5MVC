@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Foundation5.MVC</id>
-        <version>1.0.522</version>
-        <title>Zurb Foundation 5.2.2 for MVC</title>
+        <version>1.0.523</version>
+        <title>Zurb Foundation 5.2.3 for MVC</title>
         <authors>Ed Charbeneau</authors>
         <owners>Ed Charbeneau</owners>
         <licenseUrl>https://github.com/zurb/foundation/blob/master/LICENSE</licenseUrl>
@@ -19,12 +19,11 @@ Download: http://foundation.zurb.com/download.php
 Foundation is MIT-licensed and absolutely free to use. Foundation wouldn't be possible without the support of the entire ZURB team, our friends and colleagues who gave feedback, and some luminaries who did some heavy lifting that we took advantage of (thanks guys).</description>
         <summary>Zurb Foundation HTML Boilerplate, CSS, JS, Plugins
 An easy to use, powerful, and flexible framework for building prototypes and production code on any kind of device.</summary>
-        <releaseNotes>Updated core to 5.2.2
-Changed bundle mechanics for this package for easier installation.</releaseNotes>
+        <releaseNotes>Updated core to 5.2.3</releaseNotes>
         <copyright>MIT open source licensed</copyright>
         <tags>HTML CSS MVC Template Boilerplate Javascript Prototyping Framework Foundation Zurb</tags>
         <dependencies>
-            <dependency id="Foundation5.Core" version="5.2.2" />
+            <dependency id="Foundation5.Core" version="5.2.3" />
         </dependencies>
     </metadata>
     <files>
