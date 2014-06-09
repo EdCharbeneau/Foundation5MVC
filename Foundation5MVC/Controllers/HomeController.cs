@@ -8,7 +8,7 @@ namespace Foundation5MVC.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Foundation_Index()
+        public ActionResult Index()
         {
             return View();
         }

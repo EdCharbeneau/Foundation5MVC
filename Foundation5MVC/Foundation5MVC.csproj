@@ -234,6 +234,8 @@
     <Content Include="sass\foundation\components\_visibility.scss" />
     <Content Include="sass\foundation\_functions.scss" />
     <Content Include="sass\foundation\_settings.scss" />
+    <Content Include="sass\foundation\components\_reveal-new.scss" />
+    <Content Include="sass\foundation\components\_xy-center.scss" />
     <Content Include="sass\_foundation.scss" />
     <Content Include="sass\_normalize.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -268,9 +270,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="stylesheets\ie.css" />
-    <Content Include="stylesheets\print.css" />
-    <Content Include="stylesheets\screen.css" />
     <Content Include="stylesheets\Site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
