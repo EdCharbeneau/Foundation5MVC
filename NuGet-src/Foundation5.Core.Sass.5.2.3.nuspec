@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Foundation5.Core.Sass</id>
-        <version>5.2.2</version>
+        <version>5.2.3</version>
         <title>Foundation 5 Core Sass files</title>
         <authors>Ed Charbeneau</authors>
         <owners>Ed Charbeneau</owners>
@@ -12,7 +12,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Core SCSS (Sass) and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC.Sass</description>
         <summary>Core SCSS (Sass) and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC.Sass</summary>
-        <releaseNotes>Updated to 5.2.2</releaseNotes>
+        <releaseNotes>Updated to 5.2.3</releaseNotes>
     </metadata>
     <files>
         <file src="..\Foundation5MVC\sass\foundation\components\_accordion.scss" target="content\sass\foundation\components\_accordion.scss" />
@@ -40,6 +40,7 @@
         <file src="..\Foundation5MVC\sass\foundation\components\_pricing-tables.scss" target="content\sass\foundation\components\_pricing-tables.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_progress-bars.scss" target="content\sass\foundation\components\_progress-bars.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_range-slider.scss" target="content\sass\foundation\components\_range-slider.scss" />
+        <file src="..\Foundation5MVC\sass\foundation\components\_reveal-new.scss" target="content\sass\foundation\components\_reveal-new.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_reveal.scss" target="content\sass\foundation\components\_reveal.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_side-nav.scss" target="content\sass\foundation\components\_side-nav.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_split-buttons.scss" target="content\sass\foundation\components\_split-buttons.scss" />
