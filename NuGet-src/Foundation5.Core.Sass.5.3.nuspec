@@ -2,17 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Foundation5.Core.Sass</id>
-        <version>5.2.3</version>
-        <title>Foundation 5 Core Sass files</title>
+        <version>5.3</version>
+        <title>Foundation 5 (for Sites) Core Sass files</title>
         <authors>Ed Charbeneau</authors>
         <owners>Ed Charbeneau</owners>
         <licenseUrl>https://github.com/zurb/foundation/blob/master/LICENSE</licenseUrl>
         <projectUrl>http://www.responsiveMVC.net/Foundation</projectUrl>
         <iconUrl>http://www.codepalousa.com/images/ED/yeti-avatar.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Core SCSS (Sass) and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC.Sass</description>
-        <summary>Core SCSS (Sass) and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC.Sass</summary>
-        <releaseNotes>Updated to 5.2.3</releaseNotes>
+        <description>Core SCSS (Sass) and JavaScript files for Foundation for Sites. For the complete package install Foundation5.MVC.Sass</description>
+        <summary>Core SCSS (Sass) and JavaScript files for Foundation for Sites. For the complete package install Foundation5.MVC.Sass</summary>
+        <releaseNotes>Updated to 5.3</releaseNotes>
     </metadata>
     <files>
         <file src="..\Foundation5MVC\sass\foundation\components\_accordion.scss" target="content\sass\foundation\components\_accordion.scss" />
@@ -28,6 +28,8 @@
         <file src="..\Foundation5MVC\sass\foundation\components\_forms.scss" target="content\sass\foundation\components\_forms.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_global.scss" target="content\sass\foundation\components\_global.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_grid.scss" target="content\sass\foundation\components\_grid.scss" />
+        <file src="..\Foundation5MVC\sass\foundation\components\_icon-bar.scss" target="content\sass\foundation\components\_icon-bar.scss" />
+        <file src="..\Foundation5MVC\sass\foundation\components\_iconbar.scss" target="content\sass\foundation\components\_iconbar.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_inline-lists.scss" target="content\sass\foundation\components\_inline-lists.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_joyride.scss" target="content\sass\foundation\components\_joyride.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_keystrokes.scss" target="content\sass\foundation\components\_keystrokes.scss" />
@@ -46,14 +48,17 @@
         <file src="..\Foundation5MVC\sass\foundation\components\_split-buttons.scss" target="content\sass\foundation\components\_split-buttons.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_sub-nav.scss" target="content\sass\foundation\components\_sub-nav.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_switch.scss" target="content\sass\foundation\components\_switch.scss" />
+        <file src="..\Foundation5MVC\sass\foundation\components\_switches.scss" target="content\sass\foundation\components\_switches.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_tables.scss" target="content\sass\foundation\components\_tables.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_tabs.scss" target="content\sass\foundation\components\_tabs.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_thumbs.scss" target="content\sass\foundation\components\_thumbs.scss" />
+        <file src="..\Foundation5MVC\sass\foundation\components\_toolbar.scss" target="content\sass\foundation\components\_toolbar.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_tooltips.scss" target="content\sass\foundation\components\_tooltips.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_top-bar.scss" target="content\sass\foundation\components\_top-bar.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_type.scss" target="content\sass\foundation\components\_type.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_visibility.scss" target="content\sass\foundation\components\_visibility.scss" />
         <file src="..\Foundation5MVC\sass\foundation\components\_xy-center.scss" target="content\sass\foundation\components\_xy-center.scss" />
+        <file src="..\Foundation5MVC\sass\foundation\test.html" target="content\sass\foundation\test.html" />
         <file src="..\Foundation5MVC\sass\foundation\_functions.scss" target="content\sass\foundation\_functions.scss" />
         <file src="..\Foundation5MVC\sass\foundation\_settings.scss" target="content\sass\foundation\_settings.scss" />
         <file src="..\Foundation5MVC\sass\Site.scss" target="content\sass\Site.scss" />

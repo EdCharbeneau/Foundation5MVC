@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Foundation5.MVC.Sass</id>
-        <version>1.4.523</version>
-        <title>Zurb Foundation 5.2.3 for MVC and Sass</title>
+        <version>2.0.530</version>
+        <title>Zurb Foundation 5.3 (for Sites) for MVC w/Sass</title>
         <authors>Ed Charbeneau</authors>
         <owners>Ed Charbeneau</owners>
         <licenseUrl>https://github.com/zurb/foundation/blob/master/LICENSE</licenseUrl>
@@ -21,13 +21,13 @@ Download: http://foundation.zurb.com/download.php
 Foundation is MIT-licensed and absolutely free to use. Foundation wouldn't be possible without the support of the entire ZURB team, our friends and colleagues who gave feedback, and some luminaries who did some heavy lifting that we took advantage of (thanks guys).</description>
         <summary>Zurb Foundation HTML Boilerplate, CSS, JS, Plugins
 An easy to use, powerful, and flexible framework for building prototypes and production code on any kind of device.</summary>
-        <releaseNotes>Fixed missing Sass and Scripts
-Updated to
--Foundation version 5.2.3</releaseNotes>
+        <releaseNotes>Updated to
+- Foundation version 5.3
+- This release changes the name of Foundation to Foundation for Sites</releaseNotes>
         <copyright>MIT open source licensed</copyright>
         <tags>HTML CSS MVC Template Boilerplate Javascript Prototyping Framework Foundation Zurb</tags>
         <dependencies>
-            <dependency id="Foundation5.Core.Sass" version="5.2.3" />
+            <dependency id="Foundation5.Core.Sass" version="5.3" />
         </dependencies>
     </metadata>
     <files>
