@@ -53,6 +53,9 @@ Ed Charbeneau http://twitter.com/#!/edcharbeneau
 Foundation Zurb http://twitter.com/#!/foundationzurb
 
 #####Change Log:
+Version 2.0.530
+    - Updated Foundation to 5.3.0 (Foundation for Sites) http://zurb.com/article/1316/foundation-strike-5-3-strike-for-sites
+
 Version 1.4.523
     - Updated Foundation to 5.2.3
     - 

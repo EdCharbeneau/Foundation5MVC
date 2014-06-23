@@ -181,6 +181,12 @@
     <None Include="App_Readme\Foundation_readme.md" />
     <Content Include="Global.asax" />
     <Content Include="sass\foundation\test.html" />
+    <Content Include="sass\Site.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="sass\Site.scss">
       <Compile>True</Compile>
       <Minify>True</Minify>
@@ -236,8 +242,15 @@
     <Content Include="sass\foundation\_settings.scss" />
     <Content Include="sass\foundation\components\_reveal-new.scss" />
     <Content Include="sass\foundation\components\_xy-center.scss" />
+    <Content Include="sass\foundation\components\_icon-bar.scss" />
+    <Content Include="sass\foundation\components\_iconbar.scss" />
+    <Content Include="sass\foundation\components\_switches.scss" />
+    <Content Include="sass\foundation\components\_toolbar.scss" />
     <Content Include="sass\_foundation.scss" />
     <Content Include="sass\_normalize.scss" />
+    <Content Include="sass\Site.css.map">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\foundation\fastclick.js" />
     <Content Include="Scripts\foundation\foundation.abide.js" />

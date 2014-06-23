@@ -278,7 +278,7 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.2.3',
+    version : '5.3.0',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -532,7 +532,7 @@
       //    Class (String): Class name for the generated <meta> tag
       register_media : function (media, media_class) {
         if(Foundation.media_queries[media] === undefined) {
-          $('head').append('<meta class="' + media_class + '">');
+          $('head').append('<meta class="' + media_class + '"/>');
           Foundation.media_queries[media] = removeQuotes($('.' + media_class).css('font-family'));
         }
       },
