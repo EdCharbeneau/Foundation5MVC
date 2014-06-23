@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Foundation5.Core</id>
+        <version>5.3</version>
+        <title>Foundation 5 (for Sites) Core files</title>
+        <authors>Ed Charbeneau</authors>
+        <owners>Ed Charbeneau</owners>
+        <licenseUrl>https://github.com/zurb/foundation/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://www.responsiveMVC.net/Foundation</projectUrl>
+        <iconUrl>http://www.codepalousa.com/images/ED/yeti-avatar.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Core CSS and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC</description>
+        <summary>Core CSS and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC</summary>
+        <releaseNotes>Updated to 5.3
+- This release changes the name of Foundation to Foundation for Sites</releaseNotes>
+    </metadata>
+    <files>
+        <file src="..\Foundation5MVC\Content\foundation\foundation.css" target="content\Content\foundation\foundation.css" />
+        <file src="..\Foundation5MVC\Content\foundation\normalize.css" target="content\Content\foundation\normalize.css" />
+        <file src="..\Foundation5MVC\Scripts\foundation\fastclick.js" target="content\Scripts\foundation\fastclick.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.abide.js" target="content\Scripts\foundation\foundation.abide.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.accordion.js" target="content\Scripts\foundation\foundation.accordion.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.alert.js" target="content\Scripts\foundation\foundation.alert.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.clearing.js" target="content\Scripts\foundation\foundation.clearing.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.dropdown.js" target="content\Scripts\foundation\foundation.dropdown.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.equalizer.js" target="content\Scripts\foundation\foundation.equalizer.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.interchange.js" target="content\Scripts\foundation\foundation.interchange.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.joyride.js" target="content\Scripts\foundation\foundation.joyride.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.js" target="content\Scripts\foundation\foundation.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.magellan.js" target="content\Scripts\foundation\foundation.magellan.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.offcanvas.js" target="content\Scripts\foundation\foundation.offcanvas.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.orbit.js" target="content\Scripts\foundation\foundation.orbit.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.reveal.js" target="content\Scripts\foundation\foundation.reveal.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.slider.js" target="content\Scripts\foundation\foundation.slider.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.tab.js" target="content\Scripts\foundation\foundation.tab.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.tooltip.js" target="content\Scripts\foundation\foundation.tooltip.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\foundation.topbar.js" target="content\Scripts\foundation\foundation.topbar.js" />
+        <file src="..\Foundation5MVC\Scripts\foundation\jquery.cookie.js" target="content\Scripts\foundation\jquery.cookie.js" />
+    </files>
+</package>

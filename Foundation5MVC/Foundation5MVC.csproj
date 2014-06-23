@@ -174,8 +174,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\foundation\app.css" />
     <Content Include="Content\foundation\foundation.css" />
+    <Content Include="Content\foundation\app.css" />
+    <Content Include="Content\foundation\foundation.min.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />
     <Content Include="Content\foundation\normalize.css" />
     <Content Include="favicon.ico" />
