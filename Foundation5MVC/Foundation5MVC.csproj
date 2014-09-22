@@ -246,11 +246,11 @@
     <Content Include="sass\foundation\components\_iconbar.scss" />
     <Content Include="sass\foundation\components\_switches.scss" />
     <Content Include="sass\foundation\components\_toolbar.scss" />
-    <Content Include="sass\_foundation.scss" />
-    <Content Include="sass\_normalize.scss" />
     <Content Include="sass\Site.css.map">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
+    <Content Include="sass\_foundation.scss" />
+    <Content Include="sass\_normalize.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\foundation\fastclick.js" />
     <Content Include="Scripts\foundation\foundation.abide.js" />
