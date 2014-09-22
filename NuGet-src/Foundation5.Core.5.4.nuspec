@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Foundation5.Core</id>
-        <version>5.3</version>
+        <version>5.4</version>
         <title>Foundation 5 (for Sites) Core files</title>
         <authors>Ed Charbeneau</authors>
         <owners>Ed Charbeneau</owners>
@@ -12,7 +12,8 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Core CSS and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC</description>
         <summary>Core CSS and JavaScript files for Foundation framework. For the complete package install Foundation5.MVC</summary>
-        <releaseNotes>Updated to 5.3
+        <releaseNotes>Updated to 5.4
+Updated to 5.3
 - This release changes the name of Foundation to Foundation for Sites</releaseNotes>
     </metadata>
     <files>
