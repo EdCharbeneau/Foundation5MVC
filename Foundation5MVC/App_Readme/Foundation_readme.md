@@ -4,6 +4,8 @@
 This package requires Sass (Compass is optional).  
 For Compass and Sass support in Visual Studio see: http://www.mindscapehq.com/products/web-workbench
 
+Ensure you are using the latest version of Sass before you begin. Some features can cause sass compile errors on older versions of Sass.
+
 ##1. Configure your project
 
 Foundation can be used either with Sass or Sass with compass. The Foundation Nuget package installs Foundation to the `~/sass` folder by default.
