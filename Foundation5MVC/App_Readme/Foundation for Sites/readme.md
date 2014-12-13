@@ -4,7 +4,7 @@
 This package requires Sass (Compass is optional).  
 For Compass and Sass support in Visual Studio see: http://www.mindscapehq.com/products/web-workbench
 
-Ensure you are using the latest version of Sass before you begin. Some features can cause sass compile errors on older versions of Sass.
+Ensure you are using the latest version of Sass 3.4+ before you begin. Some features can cause sass compile errors on older versions of Sass.
 
 ##1. Configure your project
 
@@ -55,6 +55,9 @@ Ed Charbeneau http://twitter.com/#!/edcharbeneau
 Foundation Zurb http://twitter.com/#!/foundationzurb
 
 #####Change Log:
+Version 2.0.550
+    - Updated Foundation to 5.5.0 (http://foundation.zurb.com/docs/changelog.html)
+
 Version 2.0.540
     - Updated Foundation to 5.4.0
 

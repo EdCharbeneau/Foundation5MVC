@@ -178,9 +178,8 @@
     <Content Include="favicon.ico" />
     <Content Include="config.rb" />
     <Content Include="App_Start\Bundles\Foundation.cs.pp" />
-    <None Include="App_Readme\Foundation_readme.md" />
+    <None Include="App_Readme\Foundation for Sites\readme.md" />
     <Content Include="Global.asax" />
-    <Content Include="sass\foundation\test.html" />
     <Content Include="sass\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
@@ -193,13 +192,17 @@
       <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
     </Content>
     <Content Include="sass\_foundation.mvc.scss">
-      <Compile>False</Compile>
+      <Compile>True</Compile>
       <Minify>True</Minify>
       <OutputFolder>C:\Users\echarbeneau\SkyDrive\Projects\Foundation5MVC\Foundation5MVC\stylesheets</OutputFolder>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
+      <IgnoreWarnings>False</IgnoreWarnings>
+      <IgnoreErrors>False</IgnoreErrors>
     </Content>
     <Content Include="sass\foundation\components\_accordion.scss" />
     <Content Include="sass\foundation\components\_alert-boxes.scss" />
@@ -279,7 +282,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />

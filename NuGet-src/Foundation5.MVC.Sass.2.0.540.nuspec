@@ -29,7 +29,6 @@ An easy to use, powerful, and flexible framework for building prototypes and pro
         </dependencies>
     </metadata>
     <files>
-        <file src="..\Foundation5MVC\App_Readme\Foundation_readme.md" target="content\App_Readme\Foundation_readme.md" />
         <file src="..\Foundation5MVC\App_Start\Bundles\Foundation.cs.pp" target="content\App_Start\Bundles\Foundation.cs.pp" />
         <file src="..\Foundation5MVC\App_Start\BundleConfig.cs.pp" target="content\App_Start\BundleConfig.cs.pp" />
         <file src="..\Foundation5MVC\Views\Home\Index.cshtml" target="content\Views\Home\Index.cshtml" />
